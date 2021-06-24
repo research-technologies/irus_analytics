@@ -18,7 +18,7 @@ More information on COUNTER reports and reporting can be found at [Project COUNT
 
 Add this line to your rails application Gemfile:
 
-    gem 'irus_analytics', git: 'https://github.com/mlibrary/irus_analytics'
+    gem 'irus_analytics', git: 'https://github.com/JiscSD/irus_analytics'
 
 And then execute:
 
