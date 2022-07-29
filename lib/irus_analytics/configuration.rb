@@ -38,7 +38,7 @@ module IrusAnalytics
             named_server = Settings.hostname if defined?( Settings ) && Settings.hostname.present?
             # hyku?
             named_server = Site.account.cname if defined?( Site ) && Site.account&.cname.present?
-            rv = irus_analytics_config[Rails.env][named_server][name.to_s]
+            rv = irus_analytics_config[Rails.env][named_server][name.to_s] if irus_analytics_config[Rails.env][named_server].present?
           end
           rv = irus_analytics_config[Rails.env][name.to_s] if rv.blank?
           rv
