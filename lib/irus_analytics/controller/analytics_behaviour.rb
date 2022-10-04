@@ -44,6 +44,13 @@ module IrusAnalytics
           request.respond_to?(name) && request.send(name) || nil
         end
       end
+      # We will override the remote_ip which is defined above and calls request.remote_ip. Why?
+      # Because in a cluster context request.remote_ip will return the internal network IP
+      # Instead we will spring it from an envvar which (depending on how that env var is set) is 
+      # very slightly better than hardcoding it right here
+      def remote_ip
+        ENV['LOAD_BALANCER_IP'] || ""
+      end
 
       def identifier
         bold_debug [ here, called_from,
